@@ -4,4 +4,4 @@ name,OurOwl
 directory,tetchy_ourowl
 
 
-balloon.directory,SSP
+//balloon.directory,SSP
