@@ -6,7 +6,7 @@ inputbox.left,928
 Char8.center,1390
 balloon0.offset,277.-64
 scriptbox.left,803
-Char0.centery,1409
+Char0.centery,1317
 Char2.centery,1400
 Char8.centery,1400
 balloon1.offset,-261.-293
@@ -15,7 +15,7 @@ Char3.center,2335
 Char3.balloon.isleft,1
 Char.VirtualDesktop,a8d6bb7e-ed4b-44c5-9770-8dfce32ba74c
 Char2.center,2237
-Char0.center,497
+Char0.center,357
 scriptbox.top,1142
 Char8.balloon.isleft,1
 Char1.centery,1400
