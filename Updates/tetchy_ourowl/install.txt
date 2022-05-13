@@ -1,0 +1,7 @@
+﻿charset,UTF-8
+type,ghost
+name,OurOwl
+directory,tetchy_ourowl
+
+
+balloon.directory,SSP

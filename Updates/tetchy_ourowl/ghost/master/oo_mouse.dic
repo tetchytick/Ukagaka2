@@ -1,0 +1,72 @@
+﻿
+
+OnMouseMove
+ {
+
+		if reference3 == 0 
+		{
+			
+			MouseMoveSakura
+		}
+		else 
+		{
+
+			MouseMoveKero
+		}
+ }
+ 
+
+ 
+MouseMoveSakura
+ {
+	if reference4 != "" 
+ 	{
+ 		stroke++ 
+ 		if stroke >= 40 
+		{
+ 			stroke = 0 
+			if reference4 == "Head" 
+ 			{
+				"\0%(idle)That won't work, as I am non-physical.\w4\nI do appreciate the sentiment.\e"
+				"\0%(idle)What is it they say?\w4\n'It's the thought that counts.'\e"
+				"\0%(idle)I'm afraid you can't do that.\e"
+				"\0%(idle)Try as you might, I cannot be interacted with.\e"
+				"\0%(idle)This is a futile effort, I'm afraid.\e"
+				"\0%(idle)Oh, to be pet.\w4 It is an impossible dream, for me.\e"
+ 			}
+			
+ 		}
+	}
+ 	else
+	{
+		stroke = 0
+ 	}
+}
+
+ 
+
+
+OnMouseDoubleClick
+ {
+	
+	if reference5 == 0 
+	{
+	 	if reference3 == 0 
+		{
+		MouseDoubleClickSakura
+		}
+		else
+		{
+ 		MouseDoubleClickKero
+		}
+	}
+ }
+
+
+ 
+MouseDoubleClickSakura
+ {
+ 
+ 		OpenSakuraMenu
+	}
+ 

@@ -1,0 +1,76 @@
+﻿
+
+OnTeachName	
+{
+	if reference0 == "TEACHNAME" 
+		{
+		"\0\s[0]What would you like me to call you?\n\n\w4\_q(OurOwl does not currently have any function that uses the user's chosen name, but feel free to set it anyway.\w4\![open,inputbox,OnNameTeach,-1]\e"
+		
+		}
+	else
+		{
+		"\e"
+		}
+}
+
+
+
+OnNameTeach
+{
+	tempname = reference0 
+	reference0 = TOLOWER(reference0) 
+	reference0 = REPLACE(reference0," ","")
+	reference0 = REPLACE(reference0,".","") 
+	reference0 = REPLACE(reference0,"-","") 
+	
+	
+	
+	if reference0 == "ourowl" 
+	{
+		"\0%(idle)This is my name. You have your own!\n\w8Try again.\![open,inputbox,OnNameTeach,-1]"
+		
+	}
+	
+	elseif reference0 == "tetchy"
+	{
+		"\0\s[20]t for tetchy\![open,inputbox,OnNameTeach,-1]"
+	}
+	elseif reference0 == "t"
+	{
+		"\0\s[20]t for tetchy\![open,inputbox,OnNameTeach,-1]"
+	}
+	elseif reference0 == "tetchytick"
+	{
+		"\0\s[20]t for tetchy\w4\![open,inputbox,OnNameTeach,-1]"
+	}
+	elseif reference0 == "" 
+	{
+		username = "User" 
+		
+		"\0%(idle)That's alright.\e"
+
+	}
+	else 
+	{
+	username = tempname
+	"\0%(idle)I will call you %(username).\e"
+	}
+	
+}
+
+
+NameDone
+{
+	if firstboot == 1 
+	{
+		firstboot = 0
+		
+		
+		"\0\s[12]Thank you for introducing yourself, %(username). \w4\e"
+	}
+	else
+	{
+	"\0%(idle)I will call you %(username).\e"
+	
+	}	
+}

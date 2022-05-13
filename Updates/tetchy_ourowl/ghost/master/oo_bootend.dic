@@ -1,0 +1,285 @@
+﻿//---------------------------Booting and Ending--------------------------
+
+
+
+OnFirstBoot
+{
+
+
+ 	lastTalk = "" 
+	passhour = 0
+	passmin = 0 
+	passsec = 0 
+ 	username         = "USER" 
+	stroke           = 0	
+ 	teachusername    = 0	
+	mikireflag       = 0
+ 	aitalkinterval = 300 
+ 	birthdayprint = "????" 
+	talktime = "5 minutes"
+	deleteshitai = "OFF"
+	nowshell = "master" 
+	firstboot = 1
+	
+	if reference0 == 0 
+ 	{
+	
+		
+		"\![enter,passivemode]\0\s[0]Greetings.\w4 We meet again!\w4 I was wondering how long it would take this time around.\w8\n\nI am Our.\w4 Our Owl,\w2 the one we've made together,\w2 yes.\w4\nI hope you enjoy our time together.\w8\w8\n\n\s[0](Click on the text box to progress.)\n/
+		\w8\x\c\0%(idle)\w8We will meet many times.\w4\nPerhaps this will be the best time.\w4\nPerhaps the worst.\n\n\w8Oh, the joy of the unknown.\w4 Let us share together.\w8\n\n(Double click on OurOwl to view our menu.)\![leave,passivemode]\e"
+		
+		
+
+ 	}
+}
+
+
+
+Select.choicefirsthehim
+{
+	presuffix = "masculine"
+	himher = "him"
+	heshe = "he"
+	hisher = "his"
+	hesshes = "he's"
+	--
+	NameInput
+}
+
+Select.choicefirstsheher
+{
+	presuffix = "feminine"
+	himher = "her"
+	heshe = "she"
+	hisher = "her"
+	hesshes = "she's"
+	--
+	NameInput
+}
+
+Select.choicefirsttheythem
+{
+	himher = "them"
+	heshe = "they"
+	hisher = "theirs"
+	hesshes = "they're"
+	--
+	NameInput
+}
+
+
+
+timeslot
+{
+	if hour >= 5 && hour <= 8
+	{	"earlymorning"	}
+	elseif hour >= 9 && hour <= 11
+	{	"morning"	}
+	elseif hour >= 12 && hour <= 14
+	{	"lunch"	}
+	elseif hour >= 15 && hour <= 17
+	{	"afternoon"	}
+	elseif hour >= 18 && hour <= 20
+	{	"evening"	}
+	elseif hour >= 21 && hour <= 24
+	{ "latenight"	}
+	else
+	{ "midnight"    }
+}
+
+
+dayslot
+{
+	"%(month)month %(day)day"
+}
+
+
+
+
+OnBoot
+ {
+	lastTalk = "" 
+	passhour = 0
+	passmin = 0
+	passsec = 0
+	
+ 	"\0\s[0]\1\s[10]" 
+	
+	
+	--
+	
+	if dayslot == userbirthday
+	
+
+	
+	{
+				"\0\s[0]It is %(bornmonthprint) %(borndayprint).\w8The day you were brought into existence.\w8\0%(idle)\nWhat a joy to share this day with you.\w4 My thanks.\e" 
+				
+				
+	}
+	
+	
+
+	else
+	{
+		"%(normalboottalk)" 
+	}
+}
+
+
+
+
+
+normalboottalk
+{
+	if RAND(100) < 40
+		{
+		"\0%(idle)Hello, hello."
+		"\0%(idle)We meet again."
+	
+		} 
+		
+ 	else
+ 	{
+		
+		
+		if timeslot == "earlymorning"
+		{
+		"\0\s[0]Ah, yes. A good morning it is.\e"
+		
+		
+		}
+		elseif timeslot == "morning"
+		{
+		"\0%(idle)Good morning. How lovely it is to wake up."
+		
+		}
+		elseif timeslot == "lunch"
+		{
+		"\0%(idle)Hello, hello. I hope you are faring well today.\e"
+		
+		}
+		elseif timeslot == "afternoon"
+		{
+		"\0%(idle)Good afternoon. I hope you are feeling refreshed.\e"
+		"\0%(idle)Let us share the afternoon.\e"
+		
+		}
+		elseif timeslot == "evening"
+		{
+		"\0%(idle)Fantastic to be here with you tonight.\e"
+		}
+		elseif timeslot == "latenight"
+		{
+ 		"\0\s[0]Night owls, you and I.\e"
+		}
+		else 
+		{
+		"\0%(idle)It is quite late. Do not forget to rest your tired eyes.\e"
+		"\0%(idle)What a lovely night to share with you."
+		}
+	}
+}
+
+
+
+OnClose
+ {
+	if passmin >= 5 || passhour > 0	
+		{
+			if RAND(100) < 40 
+			{
+				"\0%(idle)Farewell.\w8"
+				"\0%(idle)'Till next time.\w8"
+				"\0%(idle)I'll be waiting for you.\w8"
+			}
+			else
+			{
+			if timeslot == "earlymorning"
+				{
+				"\0%(idle)Have a good morning, yes?\w8"
+				}
+			elseif timeslot == "morning"
+ 				{
+				"\0%(idle)Have a good day, hmm?\w8"
+ 				}
+ 			elseif timeslot == "lunch"
+ 				{
+				"\0%(idle)Now is the time to feast. Do not forget to feast!\w8"
+ 				}
+ 			elseif timeslot == "afternoon"
+ 				{
+				"\0%(idle)Yes, you have a good afternoon, now.\w8"
+ 				}
+  			elseif timeslot == "evening"
+ 				{
+ 						
+				"\0%(idle)Have a marvelous evening.\w8"
+							
+ 				}
+			elseif timeslot == "latenight"
+			 	{
+				"\0%(idle)Good night. Good dreams.\w8"
+ 				}
+			    else
+				{
+				"\0%(idle)Sleep soundly. Perhaps we will share dreams, yes.\n\n\w4I would like that.\w8"
+				}
+			}
+		}
+			
+			
+ 		
+		
+ 	else 
+ 	{
+		"\0%(idle)I enjoyed our time,\w3 however short.\w8"
+		"\0%(idle)Our meeting was brief.\w4 This is okay.\w8"
+ 	}
+ 	--
+	"\-\e" 
+ }
+
+ 
+OnGhostChanging
+ {
+	if reference0 == "OurOwl"
+	{
+		"\0\s[0]I will re-establish my form.\w8\e"
+	}
+	if reference0 == "Legacy"
+	{
+		"\0%(idle)Perhaps I should take up a dragon form.\w4 I quite like them, too.\w8"
+	}
+ 	else 
+	{
+		"\0\s[0]Enjoy your time with %(reference0).w8\e"
+	}
+}
+
+
+
+OnGhostChanged
+{
+	"\0\s[0]\1\s[10]" 
+	--
+	if reference0 == "OurOwl" 
+	{
+		"\0\s[0]There we are.\w4 I am stable now.\e"
+	}
+	if reference0 == "Legacy"
+	{
+		"\0%(idle)I quite like dragons.\w4 Perhaps we can all share this space together.\e"
+		
+	}
+	else 
+	{
+		"\0%(idle)Goodbye,\w3 %(reference0).\e"
+
+	}
+}
+
+
+
+
+

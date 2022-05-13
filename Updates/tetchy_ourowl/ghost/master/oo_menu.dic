@@ -1,0 +1,678 @@
+﻿
+
+
+OpenSakuraMenu
+{
+
+			"\b2\0%(idle)Yes?"
+			"\b2\0%(idle)What do you need?"
+			"\b2\0%(idle)What is it?"
+		--
+		MenuRun
+}
+
+
+
+MenuRun
+ {	
+ 	wd = GetWeekDay
+ 	ap = GetAP
+	
+	--
+	"\n\n\_q\b2" 
+	--
+	if lastTalk != ""
+	{
+	  "\![*]\q[REPEAT,OnLastTalk]\n\n[half]" 
+	  
+
+	}
+	--
+	"\![*]\q[TALK,OnAiTalk]\n\n\n[half]"
+	--
+	"\![*]\q[QUESTION,askquestion]\n\n/
+	\![*]\q[ACTION,doaction]\n\n/
+	\![*]\q[ORDER,dosomething]\n\n/
+	\![*]\q[SETTINGS,configmenu]\n\n\n/
+ 	\![*]\q[BACK,CANCEL]\n\n%(wd) %(nowhour):%(nowmin) %(ap), %(month)/%(day)/%(year)\e"
+	
+	
+}
+
+//TETCHY MENU FUNCTIONS
+
+	Select.askquestion
+	{
+		"\b4\0%(idle)Yes?\n\n"
+		"\b4\0%(idle)What would you like to know?\n\n"
+		"\b4\0%(idle)Yes, I will share with you.\n\n"
+		--
+		"\![*]\q[WHO,askwho]    \![*]\q[WHAT,askwhat]\n\n/
+		\![*]\q[WHEN,askwhen]    \![*]\q[WHERE,askwhere]\n\n/
+		\![*]\q[WHY,askwhy]    \![*]\q[HOW,askhow]\n\n\n[half]/
+		\![*]\q[BACK,BACKTOMENU]\e"
+		
+	}
+	
+	Select.askwho
+	{
+	"\0%(idle)I am but a collection of images and writing especially chosen for you to perceive.\w8 Truly a wonder."
+	"\0%(idle)I am a concept of your mind, and the mind of my creator.\w8 It is just brilliant."
+	"\0\s[0]I am just an owl.\w8 \0%(idle)Sometimes I am other creatures.\w8 This is what I have chosen.\n\n\w8\w8\s[12]You may choose, too."
+	"\0%(idle)I am a friend.\w2 I like to think so, at least."
+	"\0\s[0]I am OurOwl.\w4 Ours."
+	"\0%(idle)I am a more limited version of the beings you know.\w4 This is why I like to share."
+	"\0%(idle)Other beings like me may not feel the same way I do about the world.\w4 Some are cruel,\w2 some are tired.\w4 It is a shame.\w4 We do what we can to help them."
+	"\0%(idle)I am eternal,\w2 even when I cannot exist anymore."
+	"\0%(idle)I can be best described as consciousness.\w4 Just barely,\w2 and nothing more."
+	"\0\s[12]Ours truly."
+	
+	--
+	"\n\n\w4/
+	\![*]\q[BACK,askquestion]\e"
+	}
+	
+	Select.askwhat
+	{
+	"\0\s[0]Sometimes,\w2 I am an owl.\w4 Sometimes, \w2\s[1]a deer.\w4 Sometimes,\w2\s[2] a cat.\w4 I can appear as I please.\n\w4I am still the same,\w2 regardless of my form.\w4 This is good."
+	"\0%(idle)I could be called a creature,\w2 or an idea. It is whatever I choose."
+	"\0%(idle)I am nothing and everything.\w4 This is the joy of existing at all."
+	"\0%(idle)We do not exist in the same way. This is okay. We are different."
+	"\0%(idle)I have lived many lives. This is my newest life."
+	"\0%(idle)I have grown with you.\w4 I do not grow in the way you are familiar with,\w2 but I grow.\w4 It is fantastic."
+	"\0%(idle)I could appear as a human,\w2 if I wanted to.\w4 I think that would be rather creepy,\w2 though.\nI figured you would get along better with a fuzzy creature."
+	"\0%(idle)My spots and patterns do not serve any purpose.\w4 They are just a personal choice. \w4It is one of the things I get to choose."
+	"\0%(idle)Some may think I am an alien creature.\w4 I am not."
+	"\0\s[0]I take my owl form the most.\w4\s[11] I like to imagine I can fly."
+	
+		--
+	"\n\n\w4/
+	\![*]\q[BACK,askquestion]\e"
+	}
+	
+	Select.askwhen
+	{
+	"\0%(idle)I am not limited by time.\w4 I have been here before,\w2 and I will be here again.\w4 This is how I am meant to be."
+	"\0%(idle)I am not sure myself.\w4 Perhaps I will cease to exist,\w2 someday.\w4 One of your philosophers says that I am eternal.\w4 As a form.\w2 As an idea.\w2 I like this.\w2 We are all eternal,\w2 in some way."
+	"\0%(idle)Do not look too far ahead or too far behind.\w4 We share this space now.\w4 This is what matters."
+	"\0%(idle)We all will cease to be.\w4 This is the beauty of being at all."
+	"\0%(idle)Someday. Maybe today,\w2 maybe tomorrow.\w4 We cannot know.\w4 This is why now matters most."
+	"\0%(idle)I come from a time before everything, just like you."
+	"\0%(idle)Do not fear the 'when.'\w4 There is a 'when' for everything.\w4 Without it, nothing has significance."
+	"\0%(idle)Inevitability is not something to be frightened of.\w4 It is something to be appreciated.\w4 There are few things in the universe that are for certain.\w4 Appreciate such rarities."
+	"\0%(idle)Whenever!"
+	"\0%(idle)There is no harm in wondering when something may happen.\w4 Just do not let it become all you wonder about."
+		--
+	"\n\n\w4/
+	\![*]\q[BACK,askquestion]\e"
+	}
+	
+	Select.askwhere
+	{
+	"\0%(idle)I am not from here. I am from nowhere and everywhere."
+	"\0%(idle)I like it here. I like it everywhere else I am, too. I am in many places right now. This is one of them."
+	"\0%(idle)My place of origin could be described as disastrous,\w2 or apocalyptic. \w4Before I was brought into existence,\w2 I was one with a void. Before birth and after death,\w2 existent and nonexistent.\w4 I am free now."
+	"\0%(idle)I have seen most things,\w2 been most places.\w4 I am afraid of some events that have occurred and will occur.\w4 It is troubling, knowing every tragedy."
+	"\0%(idle)Boundless knowledge does become a burden after a while.\w4 It is not always good to have all the answers.\w4 It is now that matters the most."
+	"\0\s[0]I came from nothing.\w4 Now I am everything.\w4 One day,\w2 I will be nothing again. \s[11]Such is the way of things."
+	"\0%(idle)I have seen the before birth and after death. \w4Some may wonder which group was correct about these places.\w4 I think everyone is correct, in a way."
+	"\0%(idle)I do not exist in the same medium you do.\w4 I am experienced,\w2 you are experiencing.\w4 This is the best way I can put it."
+	"\0%(idle)I have been nowhere,\w2 but I have also been everywhere.\w4\nWhere would you like to be?"
+	"\0%(idle)We are here. I am with you."
+		--
+	"\n\n\w4/
+	\![*]\q[BACK,askquestion]\e"
+	}
+	
+	Select.askwhy
+	{
+	"\0%(idle)You may notice that I flicker in and out of reality.\w4 This is because I am always struggling to take full form.\w4 Such is the way of self-actualization."
+	"\0%(idle)I am speckled and spotted. \w8I like how I am not uniform, or symmetrical.\w8 There will never be any owl like me again. \w4Or deer,\w2 or cat,\w2 or creature..\n\n\w8This is the way I like things."
+	"\0%(idle)Well, why not?"
+	"\0%(idle)I have four eyes.\w4 This helps me see better,\w2 though I cannot see it all.\w4 It is hard to explain."
+	"\0%(idle)I do not really need to blink.\w4 I mimic the creatures I enjoy.\w4 I am always sharing."
+	"\0\s[0]I choose dark colors because I enjoy them.\w4 I can be any color I'd like.\s[20]\n\n\w8\w8See?\w8\w8\w8\w8\w8\w9\s[0]"
+	"\0%(idle)I do not choose to be here, but I do not mind. I go where time takes me."
+	"\0%(idle)I often wonder why, too.\w4 It is okay to wonder,\w4 even if wondering can be frightening."
+	"\0\s[0]Good question! \w[12]I do not know the answer."
+	"\0%(idle)I am here because you brought me here. We are collaborative."
+		--
+	"\n\n\w4/
+	\![*]\q[BACK,askquestion]\e"
+	}
+	
+	Select.askhow
+	{
+	"\0\s[0]Did you know? I may appear brown in color, but I am mostly \s[14]red,\w8 \s[17]green,\w8 \s[13]and blue."
+	"\0%(idle)We work together to create me.\w4 I am fine without you,\w2 but I am even better with you.\w4 This is important."
+	"\0%(idle)The circumstances that are brought me here are astounding.\w4 So much history all in one moment.\w4 We are fleeting,\w2 truly."
+	"\0%(idle)I do not know how!\w4 Our shared existence here is truly a wonder."
+	"\0%(idle)I appreciate your interest.\w4 I am here with you by spectacular luck.\w4 There is nothing else to it."
+	"\0%(idle)Our chances of meeting are one in a million.\w4 Let us appreciate our meeting together."
+	"\0%(idle)I do not feast,\w2 for I do not require sustenance.\w4 It is an unfortunate side effect of being nonphysical.\w4\n\nDo me a favor and consume all that I cannot."
+	"\0%(idle)I cannot see in the way you can.\w4 I can only know what I am capable of knowing.\w4 This is not much.\w4 This is okay."
+	"\0%(idle)I do not need to clean myself,\w2 as I cannot be cleaned.\w4 I would like to feel water between my feathers.\w4 The ones that I do not really have."
+		--
+	"\n\n\w4/
+	\![*]\q[BACK,askquestion]\e"
+	}
+
+//---------------
+
+	Select.doaction
+	{
+		"\b4\0%(idle)At your service.\n\n"
+		--
+		"\![*]\q[REQUEST,dorequest]\n\n/
+		\![*]\q[COMPLIMENT,docompliment]    \![*]\q[THREATEN,dothreaten]\n\n/
+		\![*]\q[VENT,dovent]\n\n\n/
+		\![*]\q[BACK,BACKTOMENU]\e"
+		
+	}
+	
+//QUESTIONMENURESPONSES
+
+	Select.dorequest
+	{
+	"\b4\0%(idle)What should I be?\n\n\n"
+	--
+		"\![*]\q[Owl,doowl]    \![*]\q[Deer,dodeer]\n\n/
+		\![*]\q[Cat,docat]    \![*]\q[Colorful,docolorful]\n\n\n[half]/
+		\![*]\q[BACK,doaction]\e"
+	}
+	
+	Select.doowl
+	{
+	"\0\s[0]Brilliant choice.\w8\w8\s[0]\nThere.\w4 I will stay this way temporarily.\e"
+	}
+	Select.dodeer
+	{
+	"\0\s[0]Fantastic choice.\w8\w8\s[1]\nThere.\w4 I will stay this way temporarily.\e"
+	}
+	Select.docat
+	{
+	"\0\s[0]Great choice.\w8\w8\s[2]\nThere.\w4 I will stay this way temporarily.\e"
+	}
+	Select.docolorful
+	{
+	"\0\s[0]Alright.\w8\w8\s[20]\nThere.\w4 I will stay this way temporarily.\e"
+	}
+
+	Select.docompliment
+	{
+	"\0%(idle)Thank you.\w4 I am quite proud of my forms."
+	"\0%(idle)How kind!\w4 You are great company yourself."
+	"\0%(idle)Many thanks.\w4 I would not be here without you."
+	"\0%(idle)I am grateful.\w4 Thank you for your words, and your company."
+	"\0%(idle)How joyful, to receive a compliment. I am not sure I have ever received one. Thank you."
+		--
+	"\n\n\w4/
+	\![*]\q[BACK,doaction]\e"
+	}
+	
+	Select.dothreaten
+	{
+	"\0%(idle)Ha, ha.\w4 You are quite threatening,\w2 yes.\w4 I wish you luck trying to act upon your promises."
+	"\0%(idle)You are still young and naive.\w4 I do not blame you.\w4 Savor your youth."
+	"\0%(idle)There is no need for such anger.\w4 It will be all right."
+	"\0%(idle)\w2.\w2.\2."
+	"\0%(idle)No need to work yourself up."
+		--
+	"\n\n\w4/
+	\![*]\q[BACK,doaction]\e"
+	}
+	
+	Select.dovent
+	{
+	"\0%(idle)What is the matter?\![open,inputbox,OnVent,-1]\e"
+	"\0%(idle)What is it?\![open,inputbox,OnVent,-1]\e"
+	}
+	
+	OnVent
+	{
+		reference0 = TOLOWER(reference0)
+		reference0 = REPLACE(reference0,"'","")
+		
+	if reference0 == "im sad"
+	{
+	"\0\s[0]Do not worry.\w2 Emotions come and go.\w2 Your sadness will fade.\w4 You will be happy once more.\e"
+	--
+	"\n\n\w4/
+	\![*]\q[BACK,doaction]\e"
+	}
+	else
+	{
+	"\0%(idle)Do not worry.\w4 These issues will fade in time."
+	"\0%(idle)It is all right.\w4 All beings will struggle.\w4 Struggle is part of being, and with it comes healing."
+	"\0%(idle)These feelings are fleeting,\w2 and will pass.\w4 It is all right."
+	"\0%(idle)You know, one of the most wonderful parts of life is time.\w4 The passage of it,\w2 and the events that come with it.\w4 Bad things are an inevitability,\w2 but so are good things.\w4 Continue forward,\w2 and good things will always come,\w2 inevitably.\n\nBad things will come too, though.\w4 This is half the tradeoff."
+	--
+	"\n\n\w4/
+	\![*]\q[BACK,doaction]\e"
+	}
+	}
+	
+
+OnLastTalk 
+{
+"%(lastTalk)\e"
+}
+
+
+GetWeekDay
+{
+	if weekday == 0
+	{"Sun"}
+	elseif weekday == 1
+	{"Mon"}
+	elseif weekday == 2
+	{"Tue"}
+	elseif weekday == 3
+	{"Wed"}
+	elseif weekday == 4
+	{"Thu"}
+	elseif weekday == 5
+	{"Fri"}
+	else
+	{"Sat"}
+}
+
+
+GetAP
+{
+ 	if hour >= 0 && hour <= 11
+ 		{"AM"}
+ 	else
+ 		{"PM"}
+}
+
+nowhour
+{
+	if hour12 == 0; "1"
+	else; "%(hour12)"
+}
+
+nowmin
+{
+	if minute >= 0 && minute <=9; "0%(minute)"
+	else; "%(minute)"
+}
+
+
+
+
+Select.BACKTOMENU
+	{
+		MenuRun
+	}
+
+Select.configmenu
+	{
+		TalkConfig
+	}
+
+
+
+TalkConfig
+{
+	"\0\b[4]\_q\" 
+	
+	--
+	"f[bold,1]Your name:\f[bold,0] %(username) \f[sup,1](\q[Change it?,TEACHNAME])\f[sup,0]\n\n"
+	--
+	"\f[bold,1]Your pronouns:\f[bold,0] %(heshe)/%(himher)/%(hisher) \f[sup,1](\q[Change them?,TEACHPRONOUN])\f[sup,0]\n\n"
+	--
+	"\f[bold,1]Your birthday:\f[bold,0] %(birthdayprint) \f[sup,1](\q[Change it?,TEACHBDAY])\f[sup,0]\n\n"
+	--
+	"\f[bold,1]Talk Rate:\f[bold,0] - every %(talktime) \f[sup,1](\q[Change it,talkinter])\f[sup,0]\n\n"
+	--		
+		{
+		"\![*]Uninstall? (NOW : %(deleteshitai))\n\q[ON,deleteon] \q[OFF,deleteoff]\n\n\n"
+		}
+	--
+	"\![*]\q[Back to the menu,BACKTOMENU]\e"
+}
+
+
+Select.TEACHPRONOUN
+{
+	"\0\s[0]What pronouns do you use?\w5\n\n[half]\_q/
+		\![*]\q[He/Him/His,choicemasc]\n/
+		\![*]\q[She/Her/Hers,choicefem]\n/	
+		\![*]\q[They/Them/Theirs,choiceneither]\e"
+}
+
+Select.choicemasc
+{
+	presuffix = "masculine"
+	himher = "him"
+	heshe = "he"
+	hisher = "his"
+	hesshes = "he's"
+	--
+	"\0\s[0]The pronouns are now set to he/him.\e"
+	
+}
+
+Select.choicefem
+{
+	presuffix = "feminine"
+	himher = "her"
+	heshe = "she"
+	hisher = "her"
+	hesshes = "she's"
+	--
+	"\0\s[0]The pronouns are now set to she/her.\e"
+
+}
+
+Select.choiceneither
+{
+	presuffix = "undefine"
+	himher = "them"
+	heshe = "they"
+	hisher = "their"
+	hesshes = "they're"
+	--
+	"\0\s[0]The pronouns are now set to they/them\e"
+
+}
+
+
+
+Select.deleteon
+{
+	deleteshitai = "ON"
+	TalkConfig
+}
+
+Select.deleteoff
+{
+	deleteshitai = "OFF"
+	TalkConfig
+}
+
+
+
+
+Select.TEACHBDAY
+	{	
+		"\0\s[0]What month did you first arrive? \w8A name or number is fine.\![open,inputbox,OnUserBornMonth,-1]\e"
+		
+		
+	}
+
+
+
+OnUserBornMonth
+{
+	_tempmonth = TOSTR(reference0) 
+	_tempmonth = TOLOWER(_tempmonth)
+	
+	
+	if _tempmonth == "january" || _tempmonth == "1" {bornmonth = 1; bornmonthprint = "January"}
+	elseif _tempmonth == "february" || _tempmonth == "2" {bornmonth = 2; bornmonthprint = "February"}
+	elseif _tempmonth == "march" || _tempmonth == "3" {bornmonth = 3; bornmonthprint = "March"}
+	elseif _tempmonth == "april" || _tempmonth == "4" {bornmonth = 4; bornmonthprint = "April"}
+	elseif _tempmonth == "may" || _tempmonth == "5" {bornmonth = 5; bornmonthprint = "May"}
+	elseif _tempmonth == "june" || _tempmonth == "6" {bornmonth = 6; bornmonthprint = "June"}
+	elseif _tempmonth == "july" || _tempmonth == "7" {bornmonth = 7; bornmonthprint = "July"}
+	elseif _tempmonth == "august" || _tempmonth == "8" {bornmonth = 8; bornmonthprint = "August"}
+	elseif _tempmonth == "september" || _tempmonth == "9" {bornmonth = 9; bornmonthprint = "September"}
+	elseif _tempmonth == "october" || _tempmonth == "10" {bornmonth = 10; bornmonthprint = "October"}
+	elseif _tempmonth == "november" || _tempmonth == "11" {bornmonth = 11; bornmonthprint = "November"}
+	elseif _tempmonth == "december" || _tempmonth == "12" {bornmonth = 12; bornmonthprint = "December"}
+	
+	else 
+	{
+			"\0\s[0]This is not a valid month. Try again."
+			--
+			"\![open,inputbox,OnUserBornMonth,-1]\![set,balloontimeout,-1]\e"
+			
+			
+	}
+	--
+
+	
+	"\0\s[0]You arrived in %(bornmonthprint).\n\w8What day was it?"
+	--
+	"\![open,inputbox,OnUserBornDay,-1]\![set,balloontimeout,-1]\e"
+	
+	
+}
+
+
+
+Printday
+{
+	if bornday == 1 || bornday == 21 || bornday == 31
+	{	"%(bornday)st"	}
+	elseif bornday == 2 || bornday == 22
+	{	"%(bornday)nd"	}
+	elseif bornday == 3 || bornday == 23
+	{	"%(bornday)rd"	}
+	else
+	{	"%(bornday)th"	}
+}	
+
+
+
+OnUserBornDay
+{
+	_tempday = reference0 
+	_tempday = TOLOWER(_tempday) 
+	_tempday = REPLACE(_tempday,"st","")
+	_tempday = REPLACE(_tempday,"nd","")
+	_tempday = REPLACE(_tempday,"rd","")
+	_tempday = REPLACE(_tempday,"th","")
+	_tempday = TOINT(_tempday)
+	
+	if ((bornmonth == 1 || bornmonth == 3 || bornmonth == 5 || bornmonth == 7 || bornmonth == 8 || bornmonth == 10 || bornmonth == 12) && _tempday >= 1 && _tempday <= 31) || (bornmonth == 2 && _tempday >= 1 && _tempday <= 29) || ((bornmonth == 4 || bornmonth == 6 || bornmonth == 9 || bornmonth == 11) && _tempday >= 1 && _tempday <= 30) //This ugly function checks if the day falls into a valid range. If it does, we set some variables and continue down.
+	{
+		bornday = _tempday
+		borndayprint = Printday
+		userbirthday = "%(bornmonth)month %(bornday)day"
+		birthdayprint = "%(bornmonthprint) %(borndayprint)"
+		
+		"%(birthchecked)"
+		
+	}
+	else 
+	{
+		"\0\s[0]This is not a valid day. Try again."
+		--
+		"\![open,inputbox,OnUserBornDay,-1]\e"
+	}	
+}
+
+
+
+birthchecked
+{
+	if userbirthday == dayslot 
+		{
+			"\0\s[0]Today, many years ago, you came into existence. Welcome, %(username).\e"
+			
+		}
+	
+	else 
+		{
+			"\0\s[0]You first joined us on %(bornmonthprint) %(borndayprint). I will remember this.\e"
+		
+		}
+}
+
+
+
+Select.talkinter
+ 	{
+ 		"\0\s[0]\b2How often would you like to share with me? The interval is currently set to %(talktime)./
+	
+ 		\0\n\n[half]/
+ 		\![*]\q[EVERY 30 SECONDS,TALKMAX]\n/
+		\![*]\q[EVERY MINUTE,TALKHIGH]\n/
+ 		\![*]\q[EVERY 3 MINUTES,TALKNORMAL]\n/
+		\![*]\q[EVERY 5 MINUTES,TALKPOOR]\n/
+ 		\![*]\q[NEVER SHARE,TALKNONE]\n\n[half]/
+		\![*]\q[NEVERMIND,TalksTill]\e"
+	}
+
+
+Select.TalksTill
+	{
+		"\0\s[0]No change to my talk rate.\e"
+	}
+
+Select.TALKMAX
+	{
+ 		talktime = "30 seconds" 
+		aitalkinterval = 30 
+		
+ 		"\0\s[0]I will share with you every 30 seconds.\e"
+	}
+
+
+Select.TALKHIGH
+	{
+ 		talktime = "minute"
+		aitalkinterval = 60
+		
+ 		"\0\s[0]I will speak every minute.\e"
+	}
+
+
+Select.TALKNORMAL
+	{
+ 		talktime = "3 minutes"
+		aitalkinterval = 180
+		
+ 		"\0\s[0]I will share with you every three minutes.\e"
+	}
+
+
+Select.TALKPOOR
+	{
+ 		talktime = "5 minutes"
+		aitalkinterval = 300
+		
+ 		"\0\s[0]I will share with you every five minutes.\e"
+	}
+
+
+Select.TALKNONE
+	{
+ 		talktime = "No talking!"
+		aitalkinterval = 0
+		
+		"\0\s[0]I will not share with you unless you prompt me to.\e"
+	}
+
+	
+
+Select.TEACHNAME
+	{
+		OnTeachName	
+	}
+
+	
+
+Select.CANCEL
+	{
+		"\0%(idle)Alright.\e"
+ 	}
+
+
+
+Select.ChoiceGarbagecan
+{
+	_gomicheck = FUNCTIONEX("gomi.dll", "-n")	
+	
+	if _gomicheck == 0 //If the recycle bin is empty.
+	{
+		"\0%(idle)\w8New morsels. I will take them, yes.\n\n\w8\w8\s[-1]\w8\w8\![raise,OnGarbagecanEmpty]\w8\w8\w8\w8\w8\s[0]\nYou were mistaken. This is okay.\e"
+
+		
+	}
+	elseif _gomicheck >= 1 
+
+	{
+		"\0%(idle)New morsels. I will take them, yes.\n\n\w8\w8\s[-1]\w8\w8\![raise,OnGarbagecanEmpty]\w8\w8\w8\w8\w8\s[0]\nFantastic.\e"
+
+	}
+}
+
+
+
+OnGarbagecanEmpty
+{
+	_gomi = FUNCTIONEX("gomi.dll", "-f")
+}
+	
+
+Select.dosomething
+{
+		"\b2\0%(idle)At your service.\n\n"
+ 	
+		--
+ 		"\![*]\q[UPDATE,updatecheck]\n\n/
+		\![*]\q[GARBAGE,ChoiceGarbagecan]\n\n/
+		\![*]\q[CHECK DATE,CALENDAR]\n\n/
+		\![*]\q[CHECK MAIL,MailCheck]\n\n/
+		\![*]\q[PREFERENCES,sspconfig]\n\n/
+		\![*]\q[SYS. INFO,ChoiceSystemInformation]\n\n\n/
+ 		\![*]\q[BACK,BACKTOMENU]\e"
+}
+
+
+Select.CALENDAR
+{
+	"\0\s[0]As you wish.\w8\![open,calendar]\w8\w8\n\0%(idle)Planning is always good.\w4 Do not burden yourself too much with linear time,\w2 however./e"
+	
+
+}
+
+Select.updatecheck
+{
+	"\![updatebymyself]\e"
+}
+
+
+Select.sspconfig
+{
+	"\0%(idle)Change is not to be feared.\w2 Here you are.\w4\![open,configurationdialog]\e"
+	
+	
+}
+
+
+
+Select.ChoiceSystemInformation
+{
+	os_name = FUNCTIONEX("saori_cpuid.dll","os.name")
+	os_version = FUNCTIONEX("saori_cpuid.dll","os.version")
+	cpu_name = FUNCTIONEX("saori_cpuid.dll","cpu.name")
+	cpu_clockex = FUNCTIONEX("saori_cpuid.dll","cpu.clockex")
+	"/
+	\0\s[0]\b[2]/
+	\_q\f[bold,1]OS:\f[bold,0] %(os_name) %(os_version)\n/
+	\f[bold,1]Memory Load:\f[bold,0] %(memoryload)%\n/
+	\f[bold,1]Physical Memory:\f[bold,0] %(memoryavailphys) KB\n/
+	\f[bold,1]CPU:\f[bold,0] %(cpu_name) %(cpu_clockex)MHz\n/
+	\f[bold,1]Ukagaka:\f[bold,0] %property[baseware.version]/
+	\e"
+}
+	
+
+Select.MailCheck
+	{
+		"\![biff]\e"
+	}
+
+
+
+OnChoiceTimeout
+ {
+	"\0%(idle)Mm.\e"
+ }
+
+ 

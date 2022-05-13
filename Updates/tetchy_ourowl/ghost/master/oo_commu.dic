@@ -1,0 +1,50 @@
+
+OnCommunicate
+ {
+	if reference0 == "user" || reference0 == "User"
+ 	{
+		
+ 		ReplyToUser
+	}
+ 	else
+	{
+ 		
+		ReplyToGhost
+ 	}
+}
+
+
+ReplyToUser
+{
+	TalkToUser
+}
+
+
+
+ReplyToGhost
+{
+       if AlreadyResponded == 1 
+       {
+			
+		
+             AlreadyResponded = 0 
+
+             res_reference0 = "" 
+
+             "Brilliant."
+       }
+       else
+       {
+             res_reference0 = reference0 
+			 
+             AlreadyResponded = 1
+
+             {
+             "\0\s[0]Hello, %(res_reference0).\e"
+			 
+			 "\0\s[0]We are all sharing this space.\w4 Welcome, %(res_reference0).\e"
+
+             }
+       }
+}
+

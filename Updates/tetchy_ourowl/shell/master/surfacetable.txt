@@ -1,0 +1,17 @@
+
+charset,UTF-8
+version,1
+option,DisableNoDefineSurfaces
+
+group,O
+{
+scope,0
+	
+	0,Owl
+	1,Deer
+	2,Cat
+	3,OwlDeer
+	4,OwlCat
+	5,DeerCat
+
+}

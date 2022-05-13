@@ -1,0 +1,62 @@
+﻿
+
+
+
+blanklist
+{
+	"List object 1"
+	"List object 2"
+	"List object 3"
+	"List object 4"
+	"List object 5"
+}
+
+blanklist2
+{
+	"List object 1"
+	"List object 2"
+	"List object 3"
+	"List object 4"
+	"List object 5"
+	"List object 6"
+	"List object 7"
+	"List object 8"
+}
+
+blanklist3
+{
+	"List object 1"
+	"List object 2"
+	"List object 3"
+	"List object 4"
+}
+
+blanklist4
+{
+	"List object 1"
+	"List object 2"
+}
+
+
+usersfolder
+{
+	"%(username)'s Recycle Bin"
+	"%(username)'s Document folder"
+	"%(username)'s secret folder"
+}
+
+
+idle
+{
+	"\0\s[0]"
+	"\0\s[1]"
+	"\0\s[2]"
+}
+
+
+ 
+ 
+ On_\person
+{
+ 	person
+}

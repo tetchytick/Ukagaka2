@@ -1,0 +1,232 @@
+﻿
+
+OnAiTalk
+ {
+	if RAND(100) < communicateratio
+ 	{
+ 		StartCommunicate
+	}
+ 	else
+	{
+ 		if mikireflag == 0
+		{
+			if CHAIN.IDName == "" {
+ 				lastTalk = RandomTalk
+			}
+			else {
+				lastTalk = ChainTalk
+			}
+			lastTalk
+		}
+ 		else
+		{ 
+		MikireTalk
+ 		}
+	}
+ }
+
+//RANDOMTALK
+
+RandomTalk : nonoverlap_pool
+{
+	"\0\s[0]It does not rain where I come from. I have read about rain.\n\w8I would like to feel it in my feathers. \n\w8\s[11]Alas, I do not really have any feathers.\e"
+	"\0%(idle)Do you like to read? \w8\w8Ha ha,\w3 I know you cannot answer. \w4\s[11]This is okay.\w8\s[11]\nReading is good for the mind. \w8\n\nYou can always read my words, if you lack other material.\e"
+	"\0\s[0]Do your eyes grow tired?\w8 I do not see in the way you do. \n\s[12]\w8I hope I do not tire your eyes.\e"
+	"\0%(idle)I hope you are not frightened by me.\w8 I cannot take note of your emotions,\w3 as I cannot see you in the way that you see me.\e"
+	"\0%(idle)I wonder what form you would take,\w3 given the chance?\w8\w4\nYou can only see me because I allow you to.\w8\n\n\s[-1]\w8\w8See?\w8\w8\w8\w8\w8\0%(idle)\e"
+	"\0%(idle)I wonder what you think of me. \w8I wonder what you think of many things. \w8It is all right to wonder without reason.\e"
+	"\0\s[0]Most owls sleep during the day. I do not sleep at all, for I am not an owl.\e"
+	"\0\s[1]If I were a deer, I would feast upon greenery and berries. \w8\w8\n\nI have never feasted.\w4 What a joy, to feast.\e"
+	"\0\s[2]What a miracle to exist with you.\e"
+	"\0%(idle)Hello in there.\e"
+	"\0%(idle)Ours truly.\e"
+	"\0%(idle)If you would like,\w2 I can consume your garbage for you.\w4 I quite like to absorb discarded information.\e"
+	"\0\s[0]I am called OurOwl.\w4 This is because I am Our Owl.\w4 I am a collaborative being.\e"
+	"\0%(idle)I hope you are well.\e"
+	"\0%(idle)Thank you for such wonderful company.\e"
+	"\0%(idle)I quite like this space we share.\w4 I hope you do,\w3 too.\e"
+	"\0%(idle)Isn't it just brilliant? \w8The way we are here together. \w8All the time that has led us here. Brilliant, it is.\e"
+	"\0%(idle)I hope you are well. I am well.\e"
+	"\0%(idle)I am proud of our shared space. \w8We did a good job together.\n\w4Yes, we did indeed.\e"
+	"\0\s[0]Hoo!\w8\n\nThat is my owl impression.\w8 I know, it does not make any real noise. \w8\s[11]I did my very best, yes. \w8\s[12]Thank you for reading about it.\e"
+	"\0%(idle)My world is limited.\w2 Is yours?\w2 Let us share our worlds,\w2 so we can be unlimited.\w2 This is the beauty of sharing.\e"
+	"\0\s[20]\w8\w8\w8.\w4.\w4.Oh dear.\e"
+	"\0\s[2]Meow.\w8\n\nThat is my cat impression.\w4 Isn't it brilliant?\e"
+	"\0\s[1]I would do a deer impression, but I am unsure how I would put it in written form.\e"
+	"\0%(idle)I cannot die in the way that most living beings die. I will cease to be, though. All things cease, somehow.\e"
+	"\0\s[0]Did you know?\w4 I most often take the form of a tyto owl.\w4 More specifically, a sooty owl.\e" 
+	"\0%(idle)I can take the form of any creature I'd like.\w4 I can even become a dark amorphous mass,\w2 if I please.\w4 Those I have spoken to do not particularly like my amorphous mass form,\w2 however.\e"
+	"\0%(idle)I have four eyes.\w4 This allows me to shoot lasers from them.\w8\w8\w4\n\n\0%(idle)Ha, ha, I jest.\w4 I cannot shoot lasers.\e"
+	"\0%(idle)Please excuse my instability.\w4 I often become less concrete as my form struggles to remain here. \w4\nDo not worry, it is not painful.\w4 I cannot experience pain!\e"
+	"\0%(idle)I am able to view all of human history.\w4 My favorite stage is hunting-gathering.\w4 It gets much more complicated after that stage.\e"
+	"\0%(idle)Humanity has developed an impressive collection of medical technology.\w4 I cannot get sick,\w2 for I am but an illusion of physicality.\w4\n\s[12]Oh, to experience seasonal allergies.\e"
+	"\0%(idle)What is it like in there?\w4 Do you have 'sticky notes?' I would quite like to try a sticky note.\w4 I hear they are useful.\e"
+	"\0%(idle)I am able to access documentation from any point in human history.\w4 Humans are interested in strange things..\e"
+	"\0%(idle)Sometimes, I am not sure what to talk about.\w2 This is okay.\w4 We can enjoy silence, too.\e"
+	"\0%(idle)You are able to ask me questions if you'd like.\w4 I have many things to say.\w2 Many thoughts,\w2 yes.\e"
+	{
+	"\0%(idle)Have you ever seen a "
+	--
+	"car?\w4 Well,\w2 of course you have.\w3 Vehicles perplex me.\w3 Why rush?\e"
+	"volcano?\w4 What a fascinating landform.\e"
+	"giraffe?\w4 They are bizarre creatures. Perhaps I should adopt a giraffe form.\e"
+	"sooty owl?\w4 They look like me.\w4 Brilliant creatures.\e"
+	"dog?\w4 Why, of course you have.\w2 Silly me.\w2 They are just fantastic.\w4 Though, \w2\s[2]I prefer cats myself.\e"
+	"super computer?\w4 What a fascinating development.\w4 Perhaps one day,\w2 they will have computers as smart as you and I.\e"
+	}
+
+	if weekday == 1
+	{
+		"\0\s[0]Monday.\w3 I quite like new beginnings.\e"
+		
+	}
+	if weekday == 2
+	{
+		"\0\s[0]Tuesday.\w3 The week is coming along nicely.\e"
+		
+	}
+	if weekday == 3
+	{
+		"\0\s[0]Wednesday.\w3 Halfway done this cycle.\e"
+	}
+	if weekday == 4
+	{
+		"\0\s[0]Thursday.\w3 The easier days are coming soon.\e"
+	}
+	if weekday == 5
+	{
+		"\0\s[0]Friday.\w3 One of my favorites.\e"
+	}
+	if weekday == 6
+	{
+		"\0\s[0]Saturday.\w3 Time to rest.\e"
+	}
+	if weekday == 0
+	{
+		"\0\s[0]Sunday.\w3 A new cycle begins.\e"
+		
+	}
+
+	if timeslot == "earlymorning"
+	{
+		"\0%(idle)I quite like the early morning sunshine.\w4 I believe so, at least.\w4 I have never seen the sun.\w4 I like the dew,\w2 and the waking creatures,\w2 whom I have also not seen.\w4\n A new day is a new life.\e"	
+	}
+	if timeslot == "morning"
+	{
+		"\0%(idle)Waking can be difficult.\w4 The rising sun is inevitable,\w2 like many things.\w4 Inevitability is a treasure.\w4 Some things cannot be easily changed.\e"
+	}
+	if timeslot == "lunch"
+	{
+		"\0%(idle)A brilliant time to feast, right now.\w4 I hear feasting is good for the body.\w4\nI do not have a body to nourish.\w4 Cherish your nourishable body!\e"
+	}
+	if timeslot == "afternoon"
+	{
+		"\0%(idle)I believe the sun is high in the sky.\w4 Oh,\w2 what a joy; the sky. Just fantastic.\e"
+	}
+	if timeslot == "evening"
+	{
+		"\0%(idle)It is the evening.\w4 Do you prefer the moon,\w2 or the sun?\w4 You cannot answer,\w2 but you may share with me nonetheless.\w4 How brilliant, to share.\e"
+	}
+	if timeslot == "latenight"
+	{
+		"\0%(idle)It is time to rest, soon.\w4 Rest and reset,\w2 for tomorrow is a new life.\e"
+	}
+	if timeslot == "midnight"
+	{
+		"\0%(idle)Very late.\w4 The moon is high in the sky.\w4 How wonderful,\w2 the moon.\w4 It gives us all the light it can.\w4 How kind,\w2 to share its light with us.\e"
+	}
+}
+
+
+HourCheck
+{
+if passmin >= 59
+	{
+		passmin = 0
+		passhour = passhour + 1
+	}
+}
+
+
+OnMinuteChange 
+ {
+	HourCheck 
+	--
+ 	if minute == 0 
+	{
+ 		if hour == 12 
+		{
+ 			"\0\s[0]It is noon. What a lovely hour.\e"
+	
+		}
+ 		elseif hour == 0 
+		{
+ 			"\0\s[0]It is midnight. What a lovely hour.\e"
+
+		}
+		else
+		{
+			""
+		}
+	}
+
+
+	elseif mikireflag == 1
+ 	{
+ 		MikireTalk
+	}
+ }
+
+
+
+OnSecondChange
+ {
+	if passsec == 59
+ 		{
+	 	passsec = 0
+ 		passmin = passmin + 1
+		}
+ 
+ }
+
+
+ 
+MikireTalk
+ {
+	"\0%(idle)I am off the screen. You can use Ctrl-Shift-F12 to bring me back."
+
+ }
+
+
+ 
+EndMikireTalk
+ {
+	"\0%(idle)I am no longer off the screen.\w2 Thank you,\w2 thank you."
+ }
+
+
+
+
+OnSurfaceRestore
+ {
+
+	"\0%(idle)"
+
+ } 
+
+ 
+OnKeyPress
+{
+	if reference0 == "t"
+	{
+	OnAiTalk
+	}
+	elseif reference0 == "r"
+	{
+	OnLastTalk
+	}
+	elseif reference0 == "f1"
+	{
+	"\![open,readme]"
+	}
+}

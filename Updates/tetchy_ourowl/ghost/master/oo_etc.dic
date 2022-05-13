@@ -1,0 +1,547 @@
+﻿
+
+OnFileDrop2
+{
+	_filepath = SPLITPATH(reference0)
+	_filename = _filepath[2]
+	_fileext = TOLOWER(_filepath[3])
+	case _fileext
+	{
+		when ".jpg", ".jpeg", ".bmp", ".png" 
+		{
+			Wallpaperfile = reference0
+			
+			"\0\s[0]The file you dropped is '%(_filename)%(_fileext).'\w8\0\s[0]How do you want me to format your new wallpaper?\n\n[half]/
+			\![*]\q[Centered,SetWallpaper_0]\n/
+			\![*]\q[Tiled,SetWallpaper_1]\n/
+			\![*]\q[Stretched,SetWallpaper_2]\n\n[half]/
+			\![*]\q[Nevermind.,SetWallpaper_Cancel]\e"
+		}
+		when ".mid", ".wav", ".mp3", ".wma", ".au" 
+		{
+			"\0\s[0]%(_filename)%(_fileext) is a music file.\e"
+			
+		}
+		
+		when ".flp", ".als", ".psd", ".mdp", ".tiff"
+		{
+			"\0%(idle)Wow!\w2 Fantastic work.\w4 How astounding.\w4 I can hardly believe it.\e"
+		
+		}
+		others
+		{
+			"\0\s[0]This is %(_filename)%(_fileext). \0%(idle)How amazing.\e"
+		}
+	}
+}
+
+
+Select.SetWallpaper_0
+{
+	"\![set,wallpaper,%(Wallpaperfile),center]\0\s[0]The image is centered.\e"
+}
+Select.SetWallpaper_1
+{
+	"\![set,wallpaper,%(Wallpaperfile),tile]\0\s[0]The image is tiled.\e"
+}
+Select.SetWallpaper_2
+{
+	"\![set,wallpaper,%(Wallpaperfile),stretch]\0\s[0]The image is stretched.\e"
+}
+Select.SetWallpaper_Cancel
+{
+	"\0%(idle)There is nothing wrong with reconsidering.\e"
+}
+
+ 
+OnInstallBegin
+ {
+	"\0%(idle)I will happily install that for you.\w2 New things!\w2 Fantastic!\e"
+ }
+
+
+ 
+OnInstallComplete
+ {
+	"\0" 
+ 	--
+	if reference0 == "shell" 
+ 	{	
+		if reference1 == "Hypothetical Shell that doesn't actually exist" 
+		{
+		""
+	
+		}
+		elseif reference1 == "Another totally real shell wow" 
+		{
+		""
+	
+		}
+		else 
+		{
+		"\s[0]I have installed a new shell. It is called  %(reference1).\e"
+		
+		}
+ 	}
+	elseif reference0 == "ghost" 
+ 	{
+		"\0%(idle)New friends are always good. \s[0]Hello, %(reference1).\e"
+		
+ 	}
+	elseif reference0 == "balloon" 
+ 	{
+		"\s[0]I've installed a new balloon. It is called '%(reference1).'\e"
+
+ 	}
+	elseif reference0 == "plugin" 
+ 	{
+		"\s[0]I've installed a new plugin. It is called '%(reference1).'\e"
+
+ 	}
+	elseif reference0 == "calendar skin" 
+	{
+		"\s[0]I've installed a new calendar skin. It is called '%(reference1).'\e"
+	}
+	elseif reference0 == "headline" 
+	{
+		"\s[0]I've installed a new headline. It is called '%(reference1).'\e"
+	}
+	elseif reference0 == "rss" 
+	{
+		"\s[0]I've installed a new RSS feed. It is called '%(reference1).'\e"
+	}
+	else 
+	{
+		"\s[0]I've installed a file. It is called '%(reference1).'\e"
+	}
+}
+
+
+
+OnInstallFailure
+ {
+	"\0\s[0]The installation has failed.\n\w5" 
+	--
+	if reference0 == "unsupported" 
+	{
+	"This file is unsupported.\e"
+	
+	}	
+	elseif reference0 == "extraction"
+	{
+	"The file could not be extracted properly.\e"
+
+	}
+ }
+ 
+
+ 
+OnInstallRefuse
+ {
+	"\0\s[0]I can't install this. \w4It may be for %(reference0) instead.\e"
+	
+ 
+ }
+
+OnVanishSelecting
+{
+	"\0\s[0]Doing this will uninstall me from your device.\n(Be careful what you do here.)\e"
+}
+
+
+
+OnVanishSelected
+{
+	"\0%(idle)We had a good time together. See you next time.\w8\w8\e"
+}
+
+
+OnVanishCancel
+{
+	"\0%(idle)Ah, it seems our time together is not over just yet.\e"
+}
+
+
+OnVanishButtonHold
+{
+	"\0%(idle)I would love to stay. Thank you.\e"
+}
+
+
+ 
+OnVanished
+ {
+	"\1\s[10]\0\s[0]%(reference0) has been uninstalled. Farewell.\e"
+	
+}
+
+
+
+
+ 
+OnBIFFBegin
+ {
+	"\0%(idle)I will check for new mail. Do not fret, I cannot read it.\e"
+	
+ }
+
+ 
+OnBIFFComplete
+ {
+	if reference0 == 0 
+ 	{
+ 		"\0\s[0]There is no new mail.\w4 Some peace and quiet is always appreciated.\e"
+	}
+	elseif reference0 == 1 
+ 	{
+ 		"\0\s[0]There is one new email.\e"
+	}
+	elseif reference0 > 1 && reference0 < 11 
+	{
+		"\0\s[0]There are %(reference0) emails.\e"
+
+	}
+	elseif reference0 > 100 
+	{
+		"\0\s[0]There are %(reference0) emails unread.\w8 You are quite popular!\e"
+	}
+ 	else 
+	{
+		"\0\s[0]There are %(reference0) emails.\e"
+ 	}
+}
+
+ 
+OnBIFFFailure
+ {
+	if reference0 == "timeout" 
+ 	{
+ 		"\0\s[0]The connection has timed out.\e"
+	}
+ 	elseif reference0 == "kick" 
+	{
+		"\0\s[0]I cannot access the account.\e"
+ 	}
+	elseif reference0 == "defect" 
+ 	{
+ 		"\0\s[0]Your email was not set up properly. It can be set in the preferences menu. \n\n\w4I'll pull that up for you.\w8\w8\![open,configurationdialog]\e"
+		
+		
+	}
+ 	else 
+	{
+		"\0\s[0]I ran into an error. It says '%(reference[0])'.\e"
+		
+	
+ 	}
+}
+
+
+OnUpdateBegin
+ {
+	"\0%(idle)I will check for a new update. One moment.\w4.\w4.\w8\e"
+	
+ }
+
+ 
+OnUpdateReady
+ {
+ 
+	reference0++ 
+	
+    "\0\s[0]There is an update! Brilliant!\w4 There are %(reference0) new files. \s[19]Updating\w4.\w4.\w4.\w8\e"
+	
+	
+ }
+
+
+OnUpdateComplete
+ {
+	if reference0 == "none" 
+ 	{
+ 		"\0\s[0]There are no new files.\w4 Sometimes, things remain the same.\e"
+		
+	}
+ 	else 
+	{
+		"\0\s[11]I have completed the update!\w4 There are new things to do.\e"
+ 	}
+}
+
+ 
+OnUpdateFailure
+ {
+	if reference0 == "timeout"
+ 	{
+ 		"\0\s[0]The update connection has timed out.\e"
+	}
+ 	elseif reference0 == "md5 miss" 
+	{
+		"\0\s[0]The MD5 hash of the files don't match.\w4 Please inform you-know-who.\w8\w8\w8\e"
+ 	}
+	else 
+ 	{
+ 		"\0\s[0]The update could not be completed. \w4The error reads: '%(reference0)'.\e"
+	}
+ }
+
+ 
+OnUpdate.OnDownloadBegin
+ {
+ 	if "aitalk" _in_ reference0 
+ 	{
+ 		"\0\s[0]It appears I will have more things to say.\e"
+ 	}
+ 	else 
+ 	{
+	"\0%(idle)Reading files...\e"
+	"\0%(idle)This may take a while.\e"
+	}
+ }
+
+ 
+OnUpdate.OnMD5CompareBegin
+ {
+	"\0\s[0]Checking the MD5 value.\e"
+ }
+
+ 
+OnUpdate.OnMD5CompareComplete
+ {
+	"\0%(idle)This may take a while.\e"
+}
+
+ 
+OnUpdate.OnMD5CompareFailure
+ {
+		"\0\s[0]The MD5 hash of the files don't match.\w4 Please inform you-know-who.\w8\w8\w8\e"
+ }
+
+ 
+OnHeadlinesenseBegin
+ {
+	"\0\s[0]You have selected %(reference0).\e"
+ }
+
+ 
+OnHeadlinesense.OnFind
+{
+
+ 	if reference2 == "First" || reference2 == "First and Last"
+	{
+
+		"\0\b2\s[0]%(reference0):"
+ 	}
+	elseif reference2 == "Next"
+ 	{
+
+ 		"\0\b2\s[0]%(reference0):"
+	}
+ 	elseif reference2 == "Last"
+	{
+
+		"\0\b2\s[0]%(reference0):"
+ 	}
+	--
+
+	"\n\n%reference3\n"
+ 	--
+
+ 	if reference2 == "First" || reference2 == "Next"
+	{
+
+		"\![*]\q[Next,] - \![*]\q[Stop,Headline_Cancel]\e"
+ 	}
+	else
+ 	{
+
+ 		"\![*]\q[Stop,Headline_Cancel]\e"
+ 	}
+	
+}
+
+
+Select.Headline_Cancel
+{
+	"\0\s[0]Headline viewing complete.\e"
+
+}
+
+
+ 
+OnHeadlinesenseComplete
+ {
+	"\0\s[0]No update. %(reference0).\e"
+	
+ }
+
+
+ 
+OnHeadlinesenseFailure
+  {
+	"\0\s[0]I could not update the feed; " 
+ 	--
+	if reference0 == "can't download" 
+ 	{
+		"it cannot be downloaded."
+ 	}
+	elseif reference0 == "can't analyze" 
+ 	{
+		"it cannot be analyzed."
+ 	}
+	else 
+ 	{
+		"I do not know why."
+ 	}
+	--
+ 	"\e" 
+}
+
+
+ 
+OnUpdatedataCreating
+ {
+	"\1\s[10]Creating the updates2.dau file.\e"
+ }
+
+
+ 
+OnUpdatedataCreated
+ {
+	"\0\s[0]Successfully created updates2.dau.\e"
+ }
+
+
+ 
+OnNarCreating
+ {
+	"\0\s[0]Creating the .nar file.\e"
+ }
+
+ 
+OnNarCreated
+ {
+	"\0\s[0]Successfully created '%(reference0)'.\e"
+	
+ }
+
+ 
+ 
+OnSNTPBegin
+ {
+	"\0\s[0]Is there a problem with your clock? Allow me to check the time.\nI am connecting to %(reference0).\e"
+	
+ }
+
+
+ 
+ 
+OnSNTPCompare
+ {
+ 	"Retrieved Time: %reference1[1]/%reference1[2]/%reference1[0] %reference1[3]:%reference1[4]:%reference1[5]\w2\n/
+	Your Time: %reference2[1]/%reference2[2]/%reference2[0] %reference2[3]:%reference2[4]:%reference2[5]\w2\n/
+ 	\n"
+	--
+ 	if reference3 == 0
+	{
+ 		"\0\s[0]Your clock is accurate.\e" 
+	}
+ 	else 
+	{
+ 		"\0\s[0]Your clock doesn't match.\w6\nShould we fix it?\n\n[half]/
+		\![*]\q[Fix it,OnSNTPEXECUTE]\n/
+ 		\![*]\q[Leave it alone,OnSNTPCANCEL]\e"
+	}
+ }
+
+
+ 
+OnSNTPEXECUTE
+ {
+	"\0%(idle)I have fixed the clock.\6\e"
+ }
+
+ 
+ 
+OnSNTPCANCEL
+ {
+	"\0%(idle)Alright.\e"
+ }
+
+
+ 
+OnSNTPFailure
+ {
+	"\0%(idle)I could not change the clock. I am unsure as to why.\e"
+ }
+
+ 
+OnDisplayChange
+ {
+	displaybpp    = reference0
+ 	displaywidth  = reference1
+	displayheight = reference2
+ }
+
+
+
+ 
+OnScreenSaverStart
+ {
+	"\0\s[0]The screensaver is starting. Move your cursor around if you do not want that to happen.\e"
+
+ }
+
+
+ 
+OnScreenSaverEnd
+ {
+	"\0\s[0]Great work!\e"
+
+ }
+
+
+ 
+ 
+OnApplicationBoot
+ {
+	"\0\s[0]%(reference0) just started.\e"
+ }
+
+
+ 
+OnApplicationClose
+ {
+	"\0\s[0]%(reference0) has closed.\e"
+ }
+
+
+ 
+OnApplicationFileOpen
+ {
+	"\0\s[0]Opening %(reference1).\e"
+ }
+
+
+ 
+OnShellScaling
+{
+	if reference0 >= 300
+	{
+		"\0%(idle)Ah, I am.. Quite large.\e"
+	}
+	elseif reference0 == 150 
+	{
+
+        "\0%(idle)I quite like this size.\e"
+	}
+	elseif reference0 == 100
+	{
+
+		"\0%(idle)This is my regular size.\e"
+	}
+	elseif reference0 == 50 
+	{
+		"\0%(idle)I am quite small now!\e"
+	}
+}
