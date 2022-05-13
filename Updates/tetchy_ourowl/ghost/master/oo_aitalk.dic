@@ -64,6 +64,7 @@ RandomTalk : nonoverlap_pool
 	"\0%(idle)I am able to access documentation from any point in human history.\w4 Humans are interested in strange things..\e"
 	"\0%(idle)Sometimes, I am not sure what to talk about.\w2 This is okay.\w4 We can enjoy silence, too.\e"
 	"\0%(idle)You are able to ask me questions if you'd like.\w4 I have many things to say.\w2 Many thoughts,\w2 yes.\e"
+	"\0%(idle)Our communication may be limited, but we are still learning.\w4 Any learning is good.\e"
 	{
 	"\0%(idle)Have you ever seen a "
 	--
