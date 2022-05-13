@@ -249,7 +249,7 @@ OnUpdateReady
  
 	reference0++ 
 	
-    "\0\s[0]There is an update! Brilliant!\w4 There are %(reference0) new files. \s[19]Updating\w4.\w4.\w4.\w8\e"
+    "\0\s[0]There is an update! Brilliant!\w4 There are %(reference0) new files. \s[0]Updating\w4.\w4.\w4.\w8\e"
 	
 	
  }

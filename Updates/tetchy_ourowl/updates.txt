@@ -2,11 +2,11 @@ charset,OSNative
 file,ghost/master/descript.txta9ad71b22b5ca23f0f5b7d42f4a75f47size=2582date=2022-05-06T18:06:44
 file,ghost/master/gomi.dll51fe9597398db01e684a0f9d52c63242size=13312date=2004-06-01T14:00:04
 file,ghost/master/mciaudior.dllb1082bccd2aac2017f7936baf2d967b3size=29696date=2003-03-13T10:23:26
-file,ghost/master/oo_aitalk.dic46b23cae403409e0b16986969e869ce6size=7854date=2022-05-12T21:19:16
+file,ghost/master/oo_aitalk.dic46b23cae403409e0b16986969e869ce6size=7854date=2022-05-12T21:25:41
 file,ghost/master/oo_anchor.dic8a4f82ac7b47bb7ede6b046ae940cb3bsize=5178date=2021-12-12T01:05:58
 file,ghost/master/oo_bootend.dicf40084be8925e0dd7fdd4e890cd2aa1csize=4917date=2022-05-12T20:33:37
 file,ghost/master/oo_commu.dicb96a54ad01b9556ae2da435687621ad0size=658date=2022-05-11T22:40:13
-file,ghost/master/oo_etc.dicff14e44ab57d538b559d48a03a4de1d3size=8998date=2022-05-11T21:46:26
+file,ghost/master/oo_etc.dic8794cddb61bea8a69d11c53e99954836size=8997date=2022-05-12T21:26:51
 file,ghost/master/oo_menu.dicfa3d4f2c3781f3aea7be762161f988e9size=19602date=2022-05-11T23:18:04
 file,ghost/master/oo_mouse.dic28c1dec982c4fde5eba0f9474e436238size=976date=2022-05-11T22:21:48
 file,ghost/master/oo_nameteach.dicd224ba841ca79307cf63b91ee8463767size=1348date=2022-05-11T22:17:54
@@ -26,7 +26,7 @@ file,ghost/master/system_config.txt398943de62d5c9d25e3d3b286ba0ae92size=926da
 file,ghost/master/yaya.dllb7a07af9018500934f69a0335568242dsize=761856date=2021-12-08T19:30:46
 file,ghost/master/yaya.txt799b81413568feef49471d10f2f796a5size=1509date=2022-05-06T18:08:50
 file,ghost/master/yaya_config.txt134ca91eba1f7864526eaa3a2142dd20size=3920date=2017-03-17T20:07:24
-file,install.txtaf8aec5abdb75657c4592a36a7418b17size=95date=2022-05-12T21:19:36
+file,install.txtec05a5b61e818d0ead3c2c09e786c961size=93date=2022-05-12T21:27:26
 file,ourowl.ico806ba701f729c648f6fdb1fbf9cdb283size=1150date=2022-05-11T01:20:22
 file,readme.txt9498ffdaf0804849b2dbbbe4ec77f98esize=176date=2022-05-12T20:38:37
 file,shell/master/descript.txt3d4697cfbf44da6131b1ed4fbbf3c2d2size=5537date=2022-04-27T00:27:48
